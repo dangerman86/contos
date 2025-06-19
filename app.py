@@ -92,7 +92,7 @@ PROMPT_TEMPLATE = """
 
 ---
 
-**Ordem Final:** Execute a missão. Comece a escrever o conto agora. Use bastante formatacao em italico e negrito para destacar partes importantes.
+**Ordem Final:** Execute a missão. Comece a escrever o conto agora. Use bastante formatacao em italico e negrito para destacar partes importantes. Sempre use personagens maiores de idade nas historias!
 """
 
 # --- Dialog for Putaria Mode ---

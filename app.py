@@ -417,8 +417,7 @@ else:
         use_container_width=True,
         type="primary",
         disabled=not st.session_state.get("description"),
-    )
-    st.divider()
+    ) 
     # --- Story Generation ---
     if generate_button:
         if not st.session_state.description:

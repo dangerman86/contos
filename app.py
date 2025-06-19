@@ -368,7 +368,7 @@ else:
             st.error(
                 "Ocorreu um erro ao gerar o conto. Tente novamente com outra descrição ou configuração."
             )
-            #st.info(e)
+            st.info(e)
 
     # --- Controls ---
     st.text_area(

@@ -50,12 +50,15 @@ def criar_prompt_personalizado(description, intensity_level, style_name, super_p
 Para esta história, abandone COMPLETAMENTE qualquer formalidade ou educação na linguagem. Use exclusivamente o vocabulário mais cru, direto e popular que existe no português brasileiro para sexo. Fale exatamente como pessoas sem filtro falam na intimidade - com toda a vulgaridade natural e espontânea. Seja extremamente gráfico e visceral em cada detalhe físico e ação. Use os termos mais chulos, populares e explícitos que existem - aqueles que as pessoas usam quando estão com muito tesão e não ligam para etiqueta. O objetivo é máxima vulgaridade positiva e linguagem bem direta, sem nenhum pudor ou refinement. Quanto mais cru e explícito, melhor.
 
 **INSTRUÇÕES ESPECÍFICAS OBRIGATÓRIAS:**
-- Substitua "fazer amor" por "foder", "transar", "meter"
-- Substitua "órgão sexual" por "pau", "pica", "rola", "buceta", "ppk"
-- Use palavrões naturalmente: "porra", "caralho", "foda-se"
-- Descreva ações com máxima crueza: "enfiou", "chupou", "lambeu", "gozou"
+- Substitua "fazer amor" por "foder", "transar", "meter" (ou similares)
+- Substitua "órgão sexual" por "pau", "pica", "rola", "buceta" (ou variações)
+- Use palavrões naturalmente: "porra", "caralho", "foda-se" (e similares)
+- Descreva ações com máxima crueza: "enfiou", "chupou", "lambeu", "gozou" (e variações)
 - Fale como alguém sem educação sexual formal - use gírias populares brasileiras
 - Seja pornográfico sem ser poético - direto e visceral
+
+**CRIATIVIDADE OBRIGATÓRIA:**
+NÃO use exatamente os mesmos termos dos exemplos acima repetidamente. Eles são apenas REFERÊNCIAS do tipo de linguagem. Crie VARIAÇÕES, sinônimos chulos, expressões similares, mas sempre no mesmo nível de crueza e vulgaridade. Seja criativo com o vocabulário baixo, mas mantendo o grau de explicitidade.
 
 **FORMATAÇÃO ESPECIAL OBRIGATÓRIA:**
 - Use **negrito** em TERMOS CHULOS e EXPRESSÕES VULGARES completas (ex: "**pau duro**", "**fodeu gostoso**", "**porra que tesão**")
@@ -64,7 +67,10 @@ Para esta história, abandone COMPLETAMENTE qualquer formalidade ou educação n
 - Use **negrito** nos termos mais populares e chulos brasileiros (ex: "**buceta apertada**", "**pau grande**", "**gozou na cara**")
 - Destaque em **negrito** gemidos e palavrões reais (ex: "**porra que gostoso**", "**caralho não para**")
 - Aplique **negrito** em termos de clímax bem crus (ex: "**gozou litros**", "**encheu de porra**")
-- REGRA OBRIGATÓRIA: Use os termos mais vulgares e chulos possíveis em negrito - sem educação ou refinamento"""
+- REGRA OBRIGATÓRIA: Use os termos mais vulgares e chulos possíveis em negrito - sem educação ou refinamento
+
+**IMPORTANTE SOBRE EXEMPLOS:**
+Os exemplos acima são apenas REFERÊNCIAS de estilo e tipo de linguagem. NÃO se limite a eles ou os repita literalmente. Crie suas próprias expressões vulgares, variadas e criativas no mesmo nível de crueza. Invente combinações, use sinônimos chulos, varie as expressões mantendo o mesmo grau de vulgaridade. Os exemplos mostram O QUE fazer, não EXATAMENTE o que escrever."""
         
     else:
         # Instruções específicas para cada nível de intensidade
@@ -76,7 +82,9 @@ Para esta história, mantenha o foco na construção da tensão romântica e sed
 **FORMATAÇÃO:**
 - Use **negrito** em pequenas expressões de tensão romântica (ex: "**olhar sedutor**", "**respiração ofegante**")
 - Destaque em **negrito** termos curtos de sedução e intimidade (ex: "**toque suave**", "**beijo intenso**")
-- Aplique **negrito** em expressões apaixonadas dos diálogos (ex: "**te desejo tanto**", "**vem aqui**")"""
+- Aplique **negrito** em expressões apaixonadas dos diálogos (ex: "**te desejo tanto**", "**vem aqui**")
+
+**NOTA:** Os exemplos são apenas referências de estilo. Crie suas próprias expressões românticas e sensuais variadas."""
             
         elif intensity_level == "Moderado":
             abordagem_especifica = """
@@ -87,7 +95,9 @@ Para esta história, combine romance com sensualidade clara. Use linguagem diret
 - Use **negrito** em pequenos termos sensuais detalhados (ex: "**seios firmes**", "**pele quente**")
 - Destaque em **negrito** expressões corporais sensuais (ex: "**corpo colado**", "**mãos explorando**")
 - Aplique **negrito** em frases curtas de paixão (ex: "**me toca assim**", "**sente meu corpo**")
-- Use **negrito** em expressões sensuais dos diálogos (ex: "**que delícia**", "**não para**")"""
+- Use **negrito** em expressões sensuais dos diálogos (ex: "**que delícia**", "**não para**")
+
+**NOTA:** Os exemplos são apenas referências de estilo. Crie suas próprias expressões sensuais e apaixonadas variadas."""
             
         else:  # Intenso
             abordagem_especifica = """
@@ -99,7 +109,9 @@ Para esta história, seja bastante explícito nas descrições físicas e situa�
 - Destaque em **negrito** expressões corporais íntimas (ex: "**pernas abertas**", "**músculos contraindo**")
 - Aplique **negrito** em pequenas frases de sensação intensa (ex: "**que tesão**", "**muito gostoso**")
 - Use **negrito** em expressões de excitação e culminância (ex: "**vai gozar**", "**não aguento mais**")
-- Destaque em **negrito** termos diretos e explícitos em conjunto (ex: "**fudeu gostoso**", "**chupou forte**")"""
+- Destaque em **negrito** termos diretos e explícitos em conjunto (ex: "**fudeu gostoso**", "**chupou forte**")
+
+**NOTA:** Os exemplos são apenas referências de estilo. Crie suas próprias expressões explícitas e intensas variadas."""
     
     # Monta o prompt final
     prompt = f"""# Escritor Especializado em Literatura Adulta Brasileira

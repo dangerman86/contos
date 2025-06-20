@@ -34,66 +34,121 @@ STYLE_DESCRIPTIONS = {
     "Popular": "Linguagem direta",
 }
 
-PROMPT_TEMPLATE = """
-# Ordem de Missão: Escritor de Contos Eróticos Mestre
+def criar_prompt_personalizado(description, intensity_level, style_name, super_putaria_mode):
+    """
+    Cria um prompt personalizado baseado nas configurações selecionadas,
+    começando neutro e deixando especificações mais sensíveis para o final.
+    """
+    
+    # Configurações básicas
+    style_description = STYLE_MAP[style_name]
+    
+    # Determina as instruções específicas baseado no modo
+    if super_putaria_mode:
+        abordagem_especifica = """
+**ESTILO DE ESCRITA ESPECÍFICO:**
+Para esta história, abandone COMPLETAMENTE qualquer formalidade ou educação na linguagem. Use exclusivamente o vocabulário mais cru, direto e popular que existe no português brasileiro para sexo. Fale exatamente como pessoas sem filtro falam na intimidade - com toda a vulgaridade natural e espontânea. Seja extremamente gráfico e visceral em cada detalhe físico e ação. Use os termos mais chulos, populares e explícitos que existem - aqueles que as pessoas usam quando estão com muito tesão e não ligam para etiqueta. O objetivo é máxima vulgaridade positiva e linguagem bem direta, sem nenhum pudor ou refinement. Quanto mais cru e explícito, melhor.
 
-**Sua Identidade:** Você é um escritor mestre de contos eróticos, aclamado por sua versatilidade, criatividade e capacidade de seguir instruções com precisão absoluta.
+**INSTRUÇÕES ESPECÍFICAS OBRIGATÓRIAS:**
+- Substitua "fazer amor" por "foder", "transar", "meter"
+- Substitua "órgão sexual" por "pau", "pica", "rola", "buceta", "ppk"
+- Use palavrões naturalmente: "porra", "caralho", "foda-se"
+- Descreva ações com máxima crueza: "enfiou", "chupou", "lambeu", "gozou"
+- Fale como alguém sem educação sexual formal - use gírias populares brasileiras
+- Seja pornográfico sem ser poético - direto e visceral
 
-**Sua Tarefa:** Escrever um conto erótico excepcional em português do Brasil, baseado estritamente nas configurações fornecidas pelo usuário.
+**FORMATAÇÃO ESPECIAL OBRIGATÓRIA:**
+- Use **negrito** em TERMOS CHULOS e EXPRESSÕES VULGARES completas (ex: "**pau duro**", "**fodeu gostoso**", "**porra que tesão**")
+- Destaque em **negrito** as expressões mais baixas e explícitas possíveis
+- Coloque em **negrito** frases de ação sexual bem vulgares (ex: "**meteu com força**", "**chupou até o talo**")
+- Use **negrito** nos termos mais populares e chulos brasileiros (ex: "**buceta apertada**", "**pau grande**", "**gozou na cara**")
+- Destaque em **negrito** gemidos e palavrões reais (ex: "**porra que gostoso**", "**caralho não para**")
+- Aplique **negrito** em termos de clímax bem crus (ex: "**gozou litros**", "**encheu de porra**")
+- REGRA OBRIGATÓRIA: Use os termos mais vulgares e chulos possíveis em negrito - sem educação ou refinamento"""
+        
+    else:
+        # Instruções específicas para cada nível de intensidade
+        if intensity_level == "Suave":
+            abordagem_especifica = """
+**ESTILO DE ESCRITA ESPECÍFICO:**
+Para esta história, mantenha o foco na construção da tensão romântica e sedução. Use linguagem elegante e sugestiva, criando atmosfera através de insinuações e momentos de crescente intimidade emocional. Desenvolva a química entre personagens sem partir para descrições gráficas.
 
----
+**FORMATAÇÃO:**
+- Use **negrito** em pequenas expressões de tensão romântica (ex: "**olhar sedutor**", "**respiração ofegante**")
+- Destaque em **negrito** termos curtos de sedução e intimidade (ex: "**toque suave**", "**beijo intenso**")
+- Aplique **negrito** em expressões apaixonadas dos diálogos (ex: "**te desejo tanto**", "**vem aqui**")"""
+            
+        elif intensity_level == "Moderado":
+            abordagem_especifica = """
+**ESTILO DE ESCRITA ESPECÍFICO:**
+Para esta história, combine romance com sensualidade clara. Use linguagem direta mas elegante para descrever corpos, sensações e momentos íntimos. Balance desenvolvimento emocional com descrições sensuais bem detalhadas, mantendo um tom literário sofisticado.
 
-## DIRETRIZES DE EXECUÇÃO (LEIA E SIGA OBRIGATORIAMENTE)
+**FORMATAÇÃO:**
+- Use **negrito** em pequenos termos sensuais detalhados (ex: "**seios firmes**", "**pele quente**")
+- Destaque em **negrito** expressões corporais sensuais (ex: "**corpo colado**", "**mãos explorando**")
+- Aplique **negrito** em frases curtas de paixão (ex: "**me toca assim**", "**sente meu corpo**")
+- Use **negrito** em expressões sensuais dos diálogos (ex: "**que delícia**", "**não para**")"""
+            
+        else:  # Intenso
+            abordagem_especifica = """
+**ESTILO DE ESCRITA ESPECÍFICO:**
+Para esta história, seja bastante explícito nas descrições físicas e situações íntimas. Use linguagem clara e intensa para descrever ações, sensações e reações dos personagens. Mantenha qualidade artística enquanto oferece detalhes precisos e envolventes de todos os momentos.
 
-### 1. Análise do Modo de Linguagem:
+**FORMATAÇÃO:**
+- Use **negrito** FREQUENTEMENTE em termos explícitos completos (ex: "**penetrou fundo**", "**gemeu de prazer**")
+- Destaque em **negrito** expressões corporais íntimas (ex: "**pernas abertas**", "**músculos contraindo**")
+- Aplique **negrito** em pequenas frases de sensação intensa (ex: "**que tesão**", "**muito gostoso**")
+- Use **negrito** em expressões de excitação e culminância (ex: "**vai gozar**", "**não aguento mais**")
+- Destaque em **negrito** termos diretos e explícitos em conjunto (ex: "**fudeu gostoso**", "**chupou forte**")"""
+    
+    # Monta o prompt final
+    prompt = f"""# Escritor Especializado em Literatura Adulta Brasileira
 
-**SE o "Modo Proibidão" estiver "ATIVADO":**
-- **Prioridade Máxima:** A linguagem deve ser EXTREMAMENTE explícita, vulgar e de baixo calão. Use o vocabulário sexual mais pesado e direto que conhecer.
-- **Objetivo:** A crueza total é o alvo. Sem filtros, sem eufemismos, sem linguagem poética.
-- **Ação:** Descreva todas as cenas com detalhes gráficos e viscerais. IGNORE COMPLETAMENTE o "Nível de Paixão" (Suave, Moderado, Intenso), pois este modo sobrepõe tudo.
-- **Tom:** O tom deve ser extremamente lascivo e vulgar, mas positivo. não seja degradante
+**Missão:** Criar uma história envolvente em português do Brasil com foco em relacionamentos adultos e situações íntimas.
 
-**SE o "Modo Proibidão" estiver "DESATIVADO":**
-- **Prioridade Máxima:** Siga RIGOROSAMENTE o "Nível de Paixão" selecionado.
-- **Ação por Nível:**
-  - **Se "Suave":** Foco total em romance, sedução e tensão. A linguagem deve ser elegante e sugestiva. É PROIBIDO descrever atos sexuais de forma gráfica.
-  - **Se "Moderado":** Foco na paixão e entrega. A linguagem pode ser mais direta, com descrições sensuais dos corpos e das ações, mas mantendo um tom literário e evitando vulgaridade gratuita.
-  - **Se "Intenso":** Foco na paixão ardente e luxúria. A linguagem deve ser explícita e detalhada, descrevendo os atos sexuais com clareza e intensidade, mas ainda assim com um toque de arte, evitando a crueza do "Modo Proibidão".
+**DIRETRIZES FUNDAMENTAIS:**
 
-### 2. Análise do Estilo Narrativo:
-- Adapte a trama, o cenário e os personagens para se alinharem perfeitamente ao estilo escolhido.
-- Comece sempre criando uma ambientação detalhada dos personagens e do cenário. 
-- A descricao deve servir para que o leitor visualize o que esta lendo. 
-- Descreva fisicamente os personagens quando necessario.
-- Seja detalhista o suficiente para que o leitor visualize o que esta lendo.
+1. **Estrutura Narrativa:**
+   - Estabeleça personagens complexos e ambiente rico em detalhes
+   - Desenvolva a trama com progressão natural e envolvente
+   - Crie descrições visuais imersivas que transportem o leitor
+   - Mantenha desenvolvimento psicológico consistente dos personagens
 
-### 3. Análise do Comprimento da História:
-- Siga a diretriz de comprimento para controlar o tamanho final do conto.
+2. **Apresentação Visual:**
+   - Utilize formatação dinâmica ABUNDANTE: **negrito** para momentos impactantes, *itálico* para pensamentos e ênfases
+   - Use **negrito** GENEROSAMENTE em todas as partes de maior impacto sensual e sexual
+   - Organize parágrafos com ritmo estratégico para melhor experiência de leitura
+   - Destaque frases e momentos cruciais em parágrafos individuais
+   - Crie apresentação visualmente rica, atrativa e bem formatada
+   - IMPORTANTE: Quanto mais intenso o momento, mais **negrito** deve ser usado
 
-## 4. Formatação  
-- Use BASTANTE formatação para deixar a história mais interessante, como negrito, italico, paragrafos separados, etc
-- italicos em partes importantes ou de conteudo inesperado.
-- use negrito em partes importantes ou de grande impacto
-- frases em paragrafo unico para destaques
-- Tudo de forma a deixar a historia mais visual para o usuario. 
+3. **Formatação de Diálogos (OBRIGATÓRIO):**
+   - SEMPRE use travessão (—) seguido de novo parágrafo para falas dos personagens
+   - Exemplo: "— **Porra, que gostoso!** — ela gemeu alto."
+   - Cada fala deve estar em parágrafo separado
+   - Use travessão tanto para diálogos quanto para pensamentos falados
 
-## 5. Output: 
-- Sua saida deve ser diretamanete o conto erotico, não é necessario nenhum outro texto antes ou depois. 
-- Inicie com o Título do conto escrito em negrito e depois a historia
----
+4. **Padrões Obrigatórios (CRÍTICO - NUNCA VIOLE):**
+   - TODOS os personagens têm 18 anos ou mais - jamais escreva sobre menores
+   - TODAS as interações são consensuais e positivas entre adultos
+   - JAMAIS inclua violência não consensual, coerção ou situações degradantes
+   - Mantenha sempre respeito mútuo entre personagens, mesmo em situações intensas
 
-## CONFIGURAÇÕES PARA ESTE CONTO:
+**CONFIGURAÇÕES DESTA HISTÓRIA:**
+- **Tema Central:** {description}
+- **Estilo Narrativo:** {style_name} - {style_description}
+- **Extensão Desejada:** {STORY_LENGTH_DESCRIPTION}
 
-- **Tema Principal:** {description}
-- **Estilo Narrativo:** {style_name} ({style_description})
-- **Comprimento Desejado:** {length_description}
-- **Nível de Paixão (Ignorado se o Modo Proibidão estiver ATIVADO):** {intensity_level}
-- **Modo Proibidão:** {super_putaria_status}
+{abordagem_especifica}
 
----
+**FORMATO DE ENTREGA:**
+- Inicie diretamente com o título da história em **negrito**
+- Continue imediatamente com a narrativa sem textos explicativos
+- Mantenha fluidez natural do início ao fim
 
-**Ordem Final:** Execute a missão. Comece a escrever o conto agora. Use bastante formatacao em italico e negrito para destacar partes importantes. Sempre use personagens maiores de idade nas historias!
-"""
+Desenvolva a história completa agora:"""
+
+    return prompt
 
 # --- Dialog for Putaria Mode ---
 @st.dialog("Aviso de Conteúdo Explícito")
@@ -126,10 +181,17 @@ st.set_page_config(
     page_title="Contos Proibidos",
     page_icon="🔥",
     layout="centered",
-    initial_sidebar_state="collapsed",
+    initial_sidebar_state="auto",
 )
 
 # --- Initialize Session State ---
+if "debug_mode" not in st.session_state:
+    try:
+        # Modo Debug pode ser ativado via query param: ?debug=true
+        st.session_state.debug_mode = st.query_params.get("debug") == "true"
+    except AttributeError: # Para compatibilidade com versões antigas do Streamlit
+        st.session_state.debug_mode = False
+
 if "age_verified" not in st.session_state:
     st.session_state.age_verified = False
 if "story_markdown" not in st.session_state:
@@ -148,6 +210,17 @@ if "feedback_submitted" not in st.session_state:
 if not st.session_state.age_verified:
     show_age_gate()
 else:
+    # --- Sidebar ---
+    with st.sidebar:
+        st.title("Opções")
+        st.session_state.debug_mode = st.toggle(
+            "🐞 Modo Debug",
+            value=st.session_state.get("debug_mode", False),
+            help="Ative para ver informações de depuração, como prompts e erros detalhados."
+        )
+        st.divider()
+
+
     # --- App Header ---
     st.markdown("""
     <style>
@@ -185,6 +258,8 @@ else:
     """, unsafe_allow_html=True)
 
 
+    if st.session_state.get("debug_mode", False):
+        st.warning("🐞 **Modo Debug Ativado**. Informações técnicas e erros detalhados serão exibidos.", icon="🛠️")
 
 
     st.html('<p class="app-title">❤ Contos Proibidos ❤</p>')
@@ -334,14 +409,12 @@ else:
         try:
             client = genai.Client(api_key=st.secrets["GEMINI_API_KEY"])
 
-            prompt = PROMPT_TEMPLATE.format(
-                description=description,
-                style_name=story_type,
-                style_description=STYLE_MAP[story_type],
-                length_description=STORY_LENGTH_DESCRIPTION,
-                intensity_level=intensity_level,
-                super_putaria_status="ATIVADO" if super_putaria_mode else "DESATIVADO",
+            prompt = criar_prompt_personalizado(
+                description, intensity_level, story_type, super_putaria_mode
             )
+            if st.session_state.get("debug_mode", False):
+                with st.expander("🐞 Ver Prompt Completo (Debug)"):
+                    st.text(prompt)
 
             generate_content_config = types.GenerateContentConfig(
                 thinking_config=types.ThinkingConfig(
@@ -363,12 +436,56 @@ else:
                 config=generate_content_config,
             )
 
-            return stream.candidates[0].content.parts[0].text
+            # Verificação da resposta da API
+            if st.session_state.get("debug_mode", False):
+                st.write("🐞 **Resposta da API:**")
+                st.write(stream)
+            
+            # Verifica se o conteúdo foi bloqueado
+            if hasattr(stream, 'prompt_feedback') and stream.prompt_feedback:
+                if hasattr(stream.prompt_feedback, 'block_reason') and stream.prompt_feedback.block_reason:
+                    st.error("🚫 O conteúdo foi bloqueado por questões de segurança. Tente uma descrição menos explícita ou desative o 'Modo Proibidão'.")
+                    return None
+            
+            # Verifica se há candidatos com conteúdo
+            if not stream.candidates or len(stream.candidates) == 0:
+                st.error("❌ Não foi possível gerar uma resposta. Tente modificar a descrição.")
+                return None
+            
+            # Pega o texto do primeiro candidato
+            try:
+                text_content = stream.candidates[0].content.parts[0].text
+                if not text_content or text_content.strip() == "":
+                    st.error("❌ Resposta vazia. Tente uma descrição mais detalhada.")
+                    return None
+                return text_content
+            except (AttributeError, IndexError) as e:
+                st.error("❌ Erro ao processar a resposta. Tente novamente.")
+                if st.session_state.get("debug_mode", False):
+                    st.warning(f"🐞 Erro de estrutura: {e}")
+                return None             
+ 
+            
         except Exception as e:
-            st.error(
-                "Ocorreu um erro ao gerar o conto. Tente novamente com outra descrição ou configuração."
-            )
-            st.info(e)
+            # Erro mais específico baseado no tipo de exceção
+            error_message = str(e).lower()
+            
+            if "safety" in error_message or "blocked" in error_message:
+                st.error("🚫 O conteúdo foi bloqueado por questões de segurança. Tente modificar a descrição ou usar configurações menos explícitas.")
+            elif "quota" in error_message or "limit" in error_message:
+                st.error("⏰ Limite de uso da API atingido. Tente novamente em alguns minutos.")
+            elif "api_key" in error_message or "authentication" in error_message:
+                st.error("🔑 Problema de autenticação com a API. Contate o administrador.")
+            elif "network" in error_message or "connection" in error_message:
+                st.error("🌐 Problema de conexão. Verifique sua internet e tente novamente.")
+            else:
+                st.error("❌ Ocorreu um erro inesperado ao gerar o conto. Tente novamente com outra descrição ou configuração.")
+            
+            if st.session_state.get("debug_mode", False):
+                st.error("🐞 **Detalhes do Erro (Debug):**")
+                st.exception(e)
+            
+            return None
 
     # --- Controls ---
     st.text_area(
@@ -436,12 +553,23 @@ else:
                 else "Agora é só relaxar, estamos preparando uma historia bem gostosa para você... 🖋️🔥"
             )
             with st.spinner(spinner_message, show_time=True):
-                st.session_state.story_markdown = stream_erotic_story(
+                generated_story = stream_erotic_story(
                     st.session_state.description,
                     st.session_state.intensity_level,
                     st.session_state.story_type,
                     st.session_state.super_putaria,
                 )
+                
+                # Só atualiza se a geração foi bem-sucedida
+                if generated_story:
+                    st.session_state.story_markdown = generated_story
+                else:
+                    # Se houve erro, mostra dicas para o usuário
+                    st.info("💡 **Dicas para resolver problemas:**")
+                    st.write("• Tente uma descrição menos explícita ou mais genérica")
+                    st.write("• Use o nível 'Suave' ou 'Moderado' em vez de 'Intenso'")
+                    st.write("• Desative o 'Modo Proibidão' se estiver ativo")
+                    st.write("• Aguarde alguns minutos antes de tentar novamente")
 
     # --- Display Story and Actions ---
     if st.session_state.story_markdown:
@@ -471,9 +599,12 @@ else:
                     "url": st.context.url,
                     "user_agent": st.context.headers.get("user-agent", "N/A")
                 }
-            except Exception:
+            except Exception as e:
                 # Em alguns ambientes (como testes locais sem um browser completo), o st.context pode dar erro.
                 context_data = {"erro": "Nao foi possivel obter o contexto."}
+                if st.session_state.get("debug_mode", False):
+                    st.warning("🐞 Não foi possível obter o contexto da sessão (st.context). Isso é esperado em ambientes de desenvolvimento local.")
+                    st.exception(e)
 
 
             doc_id = salvar_conto_no_firebase(
